@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Donut Graphic</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work',     23],
+        ['Eat',      77],
+      ]);
+
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        pieHole: 0.8,
+        tooltip: { trigger: 'none' },
+        pieSliceBorderColor: 'transparent',
+        slices: {
+          0: { color: 'blue' },
+          1: { color: 'gray' }
+        }
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <app-root>
+  </app-root>
+</body>
+</html>
